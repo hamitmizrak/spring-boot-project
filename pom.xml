@@ -33,7 +33,7 @@
 
 
 		<!-- spring hakkinda bilgi almak isterse -->
-		<!-- localhost:8080/actuator/health -->
+		<!-- localhost:9292/actuator/health -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
