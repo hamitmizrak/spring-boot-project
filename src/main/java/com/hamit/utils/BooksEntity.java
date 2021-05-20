@@ -23,8 +23,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-// N
 public class BooksEntity extends BaseEntity {
+	// N
 	private static final long serialVersionUID = -7686620440912141762L;
 	
 	@Id

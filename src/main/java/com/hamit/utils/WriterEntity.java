@@ -1,6 +1,5 @@
 package com.hamit.utils;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,10 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.data.annotation.CreatedDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,8 +24,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-// 1
 public class WriterEntity extends BaseEntity {
+	// 1
 	private static final long serialVersionUID = 2913520780398606041L;
 	
 	@Id
@@ -53,11 +48,7 @@ public class WriterEntity extends BaseEntity {
 	@Column(name = "writer_social_media", length = 40)
 	private String writerSocialMedia;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	@CreatedDate
-	private Date tarihhhh;
-	
 	// composition
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "writerEntity", targetEntity = BooksEntity.class)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "writerEntity")
 	private List<BooksEntity> booksEntities;
 }
