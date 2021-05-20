@@ -1,10 +1,15 @@
 package com.hamit.utils;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "writer")
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 // 1
@@ -43,4 +48,7 @@ public class WriterEntity extends BaseEntity {
 	@Column(name = "writer_social_media", length = 40)
 	private String writerSocialMedia;
 	
+	// composition
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "writerEntity", targetEntity = BooksEntity.class)
+	private List<BooksEntity> booksEntities;
 }
