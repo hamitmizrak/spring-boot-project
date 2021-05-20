@@ -52,4 +52,5 @@ public class BooksEntity extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "writer_id", nullable = false)
 	private WriterEntity writerEntity;
+	
 }
