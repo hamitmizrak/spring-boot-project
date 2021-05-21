@@ -1,4 +1,4 @@
-package com.hamit.utils;
+package com.hamit.entity;
 
 import java.io.Serializable;
 import java.util.Date;

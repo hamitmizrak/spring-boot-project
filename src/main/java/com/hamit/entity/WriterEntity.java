@@ -1,4 +1,4 @@
-package com.hamit.utils;
+package com.hamit.entity;
 
 import java.util.List;
 
