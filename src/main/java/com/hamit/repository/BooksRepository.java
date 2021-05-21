@@ -1,10 +1,7 @@
 package com.hamit.repository;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,9 +13,9 @@ public interface BooksRepository extends JpaRepository<BooksEntity, Long> {
 	
 	List<BooksEntity> getByBookNameContains(String bookName);
 	
-	List<BooksEntity> findAll(Sort sort);
+	// List<BooksEntity> findAll(Sort sort);
 	
-	Page<BooksEntity> findAll(Pageable pageable);
+	// Page<BooksEntity> findAll(Pageable pageable);
 	
 	List<BooksEntity> getAllByBookNameAndBookIdNotNull(String bookName);
 	

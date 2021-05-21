@@ -1,10 +1,12 @@
 package com.hamit.service.impl;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.hamit.dto.BooksDto;
 import com.hamit.entity.BooksEntity;
 import com.hamit.repository.BooksRepository;
 import com.hamit.service.BooksService;
@@ -15,38 +17,44 @@ public class BooksServiceImpl implements BooksService {
 	@Autowired
 	BooksRepository booksRepository;
 	
+	@Autowired
+	ModelMapper modelMapper;
+	
 	@Override
-	public BooksEntity getCreate(BooksEntity booksEntity) {
-		return booksRepository.save(booksEntity);
+	public BooksDto getCreate(BooksDto booksDto) {
+		BooksEntity booksEntity = modelMapper.map(booksDto, BooksEntity.class);
+		booksRepository.save(booksEntity);
+		return modelMapper.map(booksEntity, BooksDto.class);
 	}
 	
 	@Override
 	public void getDeleteById(Long id) {
-		booksRepository.deleteById(id);
+		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public BooksEntity getDelete(BooksEntity booksEntity) {
+	public BooksDto getDelete(BooksDto booksDto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public BooksEntity getUpdate(BooksEntity booksEntity) {
+	public BooksDto getUpdate(BooksDto booksDto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public Page<BooksEntity> getPaging(Pageable pageable) {
+	public Page<BooksDto> getPaging(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public BooksEntity getById2(Long id) {
-		return booksRepository.getOne(id);
+	public BooksDto getById2(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

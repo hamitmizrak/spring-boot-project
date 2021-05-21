@@ -3,19 +3,19 @@ package com.hamit.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.hamit.entity.BooksEntity;
+import com.hamit.dto.BooksDto;
 
 public interface BooksService {
 	
-	BooksEntity getCreate(BooksEntity booksEntity);
+	BooksDto getCreate(BooksDto booksDto);
 	
 	void getDeleteById(Long id);
 	
-	BooksEntity getDelete(BooksEntity booksEntity);
+	BooksDto getDelete(BooksDto booksDto);
 	
-	BooksEntity getUpdate(BooksEntity booksEntity);
+	BooksDto getUpdate(BooksDto booksDto);
 	
-	Page<BooksEntity> getPaging(Pageable pageable);
+	Page<BooksDto> getPaging(Pageable pageable);
 	
-	BooksEntity getById2(Long id);
+	BooksDto getById2(Long id);
 }

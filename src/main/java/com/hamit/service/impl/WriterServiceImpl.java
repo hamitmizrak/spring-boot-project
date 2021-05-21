@@ -3,11 +3,11 @@ package com.hamit.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hamit.entity.WriterEntity;
+import com.hamit.dto.WriterDto;
 import com.hamit.repository.WriterRepository;
 import com.hamit.service.WriterService;
 
-// ERSI(A)
+// ERSI(A) T
 @Service
 public class WriterServiceImpl implements WriterService {
 	
@@ -15,24 +15,25 @@ public class WriterServiceImpl implements WriterService {
 	WriterRepository writerRepository;
 	
 	@Override
-	public WriterEntity getCreate(WriterEntity writerEntity) {
-		return writerRepository.save(writerEntity);
-	}
-	
-	@Override
-	public WriterEntity getDelete(WriterEntity writerEntity) {
+	public WriterDto getCreate(WriterDto writerDto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public WriterEntity getUpdate(WriterEntity writerEntity) {
+	public WriterDto getDelete(WriterDto writerDto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public WriterEntity getById(WriterEntity writerEntity) {
+	public WriterDto getUpdate(WriterDto writerDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public WriterDto getById(WriterDto writerDto) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,14 +1,14 @@
 package com.hamit.service;
 
-import com.hamit.entity.WriterEntity;
+import com.hamit.dto.WriterDto;
 
 public interface WriterService {
 	
-	WriterEntity getCreate(WriterEntity writerEntity);
+	WriterDto getCreate(WriterDto writerDto);
 	
-	WriterEntity getDelete(WriterEntity writerEntity);
+	WriterDto getDelete(WriterDto writerDto);
 	
-	WriterEntity getUpdate(WriterEntity writerEntity);
+	WriterDto getUpdate(WriterDto writerDto);
 	
-	WriterEntity getById(WriterEntity writerEntity);
+	WriterDto getById(WriterDto writerDto);
 }
