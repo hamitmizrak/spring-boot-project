@@ -9,6 +9,7 @@ import com.hamit.entity.BooksEntity;
 
 @Repository
 public interface BooksRepository extends JpaRepository<BooksEntity, Long> {
+	
 	List<BooksEntity> getByBookName(String bookName);
 	
 	List<BooksEntity> getByBookNameContains(String bookName);
