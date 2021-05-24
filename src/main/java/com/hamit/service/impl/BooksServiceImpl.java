@@ -65,8 +65,9 @@ public class BooksServiceImpl implements BooksService {
 	
 	@Override
 	public BooksDto getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		BooksEntity booksEntity = booksRepository.getOne(id);
+		// Entity'den Dto çevirmek
+		return modelMapper.map(booksEntity, BooksDto.class);
 	}
 	
 }
