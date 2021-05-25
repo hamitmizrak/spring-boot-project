@@ -51,8 +51,10 @@ public class BooksServiceImpl implements BooksService {
 	
 	@Override
 	public List<BooksDto> getAllBookList() {
+		
 		List<BooksEntity> bookEntity = new ArrayList<BooksEntity>();
 		List<BooksDto> dtos = new ArrayList<>();
+		
 		bookEntity.forEach(booksTemp -> dtos.add(modelMapper.map(booksTemp, BooksDto.class)));
 		return dtos;
 	}

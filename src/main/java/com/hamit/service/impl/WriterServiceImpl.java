@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.hamit.dto.BooksDto;
 import com.hamit.dto.WriterDto;
+import com.hamit.entity.WriterEntity;
 import com.hamit.repository.WriterRepository;
 import com.hamit.service.WriterService;
 
@@ -25,14 +26,16 @@ public class WriterServiceImpl implements WriterService {
 	
 	@Override
 	public WriterDto getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		WriterEntity writerEntity = writerRepository.getOne(id);
+		// Entity'den Dto çevirmek
+		return modelMapper.map(writerEntity, WriterDto.class);
 	}
 	
 	@Override
 	public WriterDto getCreate(WriterDto writerDto) {
-		// TODO Auto-generated method stub
-		return null;
+		WriterEntity writerEntity = modelMapper.map(writerDto, WriterEntity.class);
+		writerRepository.save(writerEntity);
+		return modelMapper.map(writerEntity, WriterDto.class);
 	}
 	
 	@Override

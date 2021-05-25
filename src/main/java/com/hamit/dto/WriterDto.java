@@ -16,6 +16,8 @@ import lombok.NoArgsConstructor;
 public class WriterDto implements Serializable {
 	
 	private static final long serialVersionUID = -9190714480247693530L;
+	// NotNull ==> validation
+	// @NonNull ==> lombok
 	
 	private Long writerId;
 	@NotNull
@@ -28,6 +30,6 @@ public class WriterDto implements Serializable {
 	private String writerAddress;
 	@NotNull
 	private String writerSocialMedia;
-	@NotNull
+	
 	private List<BooksDto> booksEntities;
 }
