@@ -14,7 +14,9 @@ public interface WriterService {
 	
 	WriterDto getCreate(WriterDto writerDto);
 	
-	WriterDto getDeleteById(Long id);
+	void getDeleteById(Long id);
+	
+	void getAllDelete(Long id);
 	
 	void getUpdate(WriterDto writerDto, Long id);
 	

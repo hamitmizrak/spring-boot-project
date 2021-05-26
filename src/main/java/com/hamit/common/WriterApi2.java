@@ -16,7 +16,7 @@ import com.hamit.service.impl.WriterServiceImpl;
 
 @RestController
 @RequestMapping("/writer/api")
-public class WriterApi {
+public class WriterApi2 {
 	@Autowired
 	WriterServiceImpl bookServiceImpl;
 	

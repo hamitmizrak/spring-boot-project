@@ -16,7 +16,7 @@ import com.hamit.service.impl.BooksServiceImpl;
 
 @RestController
 @RequestMapping("/api")
-public class BookApi {
+public class BookApi2 {
 	
 	@Autowired
 	BooksServiceImpl bookServiceImpl;

@@ -7,8 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.hamit.utils.BookTypes;
@@ -51,8 +49,9 @@ public class BooksEntity extends BaseEntity {
 	private BookTypes bookType;
 	
 	// composition
-	@ManyToOne
-	@JoinColumn(name = "writer_id", nullable = false)
-	private WriterEntity writerEntity;
+	// @JsonIgnore
+	// @ManyToOne(optional = false)
+	// @JoinColumn(name = "writer_id", nullable = false)
+	// private WriterEntity writerEntity;
 	
 }

@@ -39,9 +39,14 @@ public class WriterServiceImpl implements WriterService {
 	}
 	
 	@Override
-	public WriterDto getDeleteById(Long id) {
+	public void getDeleteById(Long id) {
+		writerRepository.deleteById(id);
+	}
+	
+	@Override
+	public void getAllDelete(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 	
 	@Override

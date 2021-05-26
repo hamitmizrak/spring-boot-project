@@ -1,15 +1,10 @@
 package com.hamit.entity;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -49,6 +44,9 @@ public class WriterEntity extends BaseEntity {
 	private String writerSocialMedia;
 	
 	// composition
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "writerEntity")
-	private List<BooksEntity> booksEntities;
+	// @JsonIgnore
+	// @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy =
+	// "writerEntity")
+	// private List<BooksEntity> booksEntities;
+	
 }

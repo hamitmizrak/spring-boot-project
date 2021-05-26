@@ -8,6 +8,8 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +22,10 @@ public abstract class BaseEntity implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created", updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date created;
+	// private Timestamp created2;
 	
 	@Temporal(TemporalType.TIMESTAMP)
+	@UpdateTimestamp
 	private Date updated;
+	// private Timestamp updated2;
 }
