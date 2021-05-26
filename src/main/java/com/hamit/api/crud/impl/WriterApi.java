@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -66,9 +67,11 @@ public class WriterApi implements ApiCrud<WriterDto> {
 	}
 	
 	@Override
-	public ResponseEntity<WriterDto> getUpdate(Long id, WriterDto writerDto) {
-		// TODO Auto-generated method stub
-		return null;
+	// localhost:9292/api/writer/update/1
+	@PutMapping("/update/{id44}")
+	public ResponseEntity<WriterDto> getUpdate(@PathVariable("id44") Long id, @ModelAttribute WriterDto writerDto) {
+		writerServiceImpl.getUpdate(writerDto, id);
+		return ResponseEntity.ok(writerDto);
 	}
 	
 	// localhost:9292/api/writer/get/list

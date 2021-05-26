@@ -25,7 +25,7 @@ public class WriterEntity extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "writer_id")
+	@Column(name = "writer_id", updatable = false, nullable = false)
 	private Long writerId;
 	
 	@Column(name = "writer_name", length = 100)

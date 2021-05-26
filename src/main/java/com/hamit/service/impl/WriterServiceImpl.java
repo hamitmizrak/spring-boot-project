@@ -15,8 +15,11 @@ import com.hamit.entity.WriterEntity;
 import com.hamit.repository.WriterRepository;
 import com.hamit.service.WriterService;
 
+import lombok.extern.java.Log;
+
 // ERSI(A) T
 @Service
+@Log
 public class WriterServiceImpl implements WriterService {
 	
 	@Autowired
@@ -29,6 +32,7 @@ public class WriterServiceImpl implements WriterService {
 	public WriterDto getById(Long id) {
 		WriterEntity writerEntity = writerRepository.getOne(id);
 		// Entity'den Dto çevirmek
+		log.info(WriterDto.class + " Veriler listelendi");
 		return modelMapper.map(writerEntity, WriterDto.class);
 	}
 	
@@ -36,31 +40,35 @@ public class WriterServiceImpl implements WriterService {
 	public WriterDto getCreate(WriterDto writerDto) {
 		WriterEntity writerEntity = modelMapper.map(writerDto, WriterEntity.class);
 		writerRepository.save(writerEntity);
+		log.info(WriterDto.class + " Veriler eklendi");
 		return modelMapper.map(writerEntity, WriterDto.class);
 	}
 	
 	@Override
 	public void getDeleteById(Long id) {
+		log.info(id + " Veri silindi");
 		writerRepository.deleteById(id);
 	}
 	
 	@Override
 	public void getAllDelete(Long id) {
+		log.info(WriterDto.class + " Veriler silindi");
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
 	public void getUpdate(WriterDto writerDto, Long id) {
-		// TODO Auto-generated method stub
+		WriterEntity writerEntity = writerRepository.findById(id).get();
+		writerEntity.setWriterAddress(writerDto.getWriterAddress());
+		writerEntity.setWriterAge(writerDto.getWriterAge());
+		writerEntity.setWriterName(writerDto.getWriterName());
+		writerEntity.setWriterSocialMedia(writerDto.getWriterSocialMedia());
+		writerEntity.setWriterSurname(writerDto.getWriterSurname());
+		writerRepository.save(writerEntity);
+		log.info(WriterDto.class + " Veriler güncellendi");
 		
 	}
-	
-	// List<BooksEntity> bookEntity = new ArrayList<BooksEntity>();
-	// List<BooksDto> dtos = new ArrayList<>();
-	
-	// bookEntity.forEach(booksTemp -> dtos.add(modelMapper.map(booksTemp,
-	// BooksDto.class)));
 	
 	@Override
 	public Page<WriterDto> getPaging(Pageable pageable) {
@@ -68,6 +76,11 @@ public class WriterServiceImpl implements WriterService {
 		return null;
 	}
 	
+	///////////////////////////////////// LİST/////////////////////////////////////////////////
+	// List<BooksEntity> bookEntity = new ArrayList<BooksEntity>();
+	// List<BooksDto> dtos = new ArrayList<>();
+	// bookEntity.forEach(booksTemp -> dtos.add(modelMapper.map(booksTemp,
+	// BooksDto.class)));
 	<S, T> List<T> mapList(List<S> source, Class<T> targetClass) {
 		return source.stream().map(element -> modelMapper.map(element, targetClass)).collect(Collectors.toList());
 	}
@@ -76,9 +89,8 @@ public class WriterServiceImpl implements WriterService {
 	public List<WriterDto> getAllWriterList() {
 		List<WriterEntity> writerEntityList = new ArrayList<WriterEntity>();
 		writerRepository.findAll().forEach(writerEntityList::add);
-		
 		List<WriterDto> writerDtoList = mapList(writerEntityList, WriterDto.class);
-		
+		log.info(WriterDto.class + " Veriler listelendi");
 		return writerDtoList;
 	}
 	
