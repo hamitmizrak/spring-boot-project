@@ -1,6 +1,8 @@
 package com.hamit.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.hamit.dto.BooksDto;
 import com.hamit.dto.WriterDto;
 import com.hamit.entity.WriterEntity;
 import com.hamit.repository.WriterRepository;
@@ -55,16 +56,30 @@ public class WriterServiceImpl implements WriterService {
 		
 	}
 	
-	@Override
-	public List<BooksDto> getAllBookList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	// List<BooksEntity> bookEntity = new ArrayList<BooksEntity>();
+	// List<BooksDto> dtos = new ArrayList<>();
+	
+	// bookEntity.forEach(booksTemp -> dtos.add(modelMapper.map(booksTemp,
+	// BooksDto.class)));
 	
 	@Override
 	public Page<WriterDto> getPaging(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	<S, T> List<T> mapList(List<S> source, Class<T> targetClass) {
+		return source.stream().map(element -> modelMapper.map(element, targetClass)).collect(Collectors.toList());
+	}
+	
+	@Override
+	public List<WriterDto> getAllWriterList() {
+		List<WriterEntity> writerEntityList = new ArrayList<WriterEntity>();
+		writerRepository.findAll().forEach(writerEntityList::add);
+		
+		List<WriterDto> writerDtoList = mapList(writerEntityList, WriterDto.class);
+		
+		return writerDtoList;
 	}
 	
 }

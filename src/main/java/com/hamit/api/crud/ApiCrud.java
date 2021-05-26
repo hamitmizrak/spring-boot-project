@@ -1,6 +1,10 @@
 package com.hamit.api.crud;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
+
+import com.hamit.dto.WriterDto;
 
 public interface ApiCrud<T> {
 	
@@ -18,5 +22,8 @@ public interface ApiCrud<T> {
 	
 	// PUT
 	public ResponseEntity<T> getUpdate(Long id, T dto);
+	
+	// All List
+	public List<WriterDto> getAllWriterList();
 	
 }

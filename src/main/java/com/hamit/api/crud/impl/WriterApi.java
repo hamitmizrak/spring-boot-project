@@ -1,5 +1,7 @@
 package com.hamit.api.crud.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,8 +51,8 @@ public class WriterApi implements ApiCrud<WriterDto> {
 		return ResponseEntity.ok(writerServiceImpl.getCreate(writerDto));
 	}
 	
-	@Override
 	// localhost:9292/api/writer/delete/1
+	@Override
 	@DeleteMapping("/delete/{id44}")
 	public ResponseEntity<WriterDto> getDeleteById(@PathVariable("id44") Long id) {
 		writerServiceImpl.getDeleteById(id);
@@ -67,6 +69,13 @@ public class WriterApi implements ApiCrud<WriterDto> {
 	public ResponseEntity<WriterDto> getUpdate(Long id, WriterDto writerDto) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	// localhost:9292/api/writer/get/list
+	@Override
+	@GetMapping("/get/list")
+	public List<WriterDto> getAllWriterList() {
+		return writerServiceImpl.getAllWriterList();
 	}
 	
 }

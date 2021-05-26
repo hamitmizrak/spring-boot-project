@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.hamit.dto.BooksDto;
 import com.hamit.dto.WriterDto;
 
 public interface WriterService {
@@ -20,8 +19,8 @@ public interface WriterService {
 	
 	void getUpdate(WriterDto writerDto, Long id);
 	
-	List<BooksDto> getAllBookList();
-	
 	Page<WriterDto> getPaging(Pageable pageable);
+	
+	List<WriterDto> getAllWriterList();
 	
 }
