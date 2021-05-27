@@ -46,33 +46,49 @@ public class WriterServiceImpl implements WriterService {
 	
 	@Override
 	public void getDeleteById(Long id) {
-		log.info(id + " Veri silindi");
-		writerRepository.deleteById(id);
+		try {
+			log.info(id + " Veri silindi");
+			writerRepository.deleteById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.warning("Hata: " + "veriler silinemedi");
+		}
+		
 	}
 	
 	@Override
-	public void getAllDelete(Long id) {
-		log.info(WriterDto.class + " Veriler silindi");
-		// TODO Auto-generated method stub
+	public void getAllDelete() {
+		try {
+			writerRepository.deleteAll();
+			log.info(WriterDto.class + " Veriler silindi");
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.warning("Hata: ");
+		}
 		
 	}
 	
 	@Override
 	public void getUpdate(WriterDto writerDto, Long id) {
-		WriterEntity writerEntity = writerRepository.findById(id).get();
-		writerEntity.setWriterAddress(writerDto.getWriterAddress());
-		writerEntity.setWriterAge(writerDto.getWriterAge());
-		writerEntity.setWriterName(writerDto.getWriterName());
-		writerEntity.setWriterSocialMedia(writerDto.getWriterSocialMedia());
-		writerEntity.setWriterSurname(writerDto.getWriterSurname());
-		writerRepository.save(writerEntity);
-		log.info(WriterDto.class + " Veriler güncellendi");
+		
+		try {
+			WriterEntity writerEntity = writerRepository.findById(id).get();
+			writerEntity.setWriterAddress(writerDto.getWriterAddress());
+			writerEntity.setWriterAge(writerDto.getWriterAge());
+			writerEntity.setWriterName(writerDto.getWriterName());
+			writerEntity.setWriterSocialMedia(writerDto.getWriterSocialMedia());
+			writerEntity.setWriterSurname(writerDto.getWriterSurname());
+			writerRepository.save(writerEntity);
+			log.info(WriterDto.class + " Veriler güncellendi");
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.warning("Hata: ");
+		}
 		
 	}
 	
 	@Override
 	public Page<WriterDto> getPaging(Pageable pageable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

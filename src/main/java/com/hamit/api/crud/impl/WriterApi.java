@@ -60,10 +60,12 @@ public class WriterApi implements ApiCrud<WriterDto> {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
+	// localhost:9292/api/writer/delete/all
 	@Override
+	@DeleteMapping("/delete/all")
 	public ResponseEntity<WriterDto> getAllDelete() {
-		// TODO Auto-generated method stub
-		return null;
+		writerServiceImpl.getAllDelete();
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 	@Override
