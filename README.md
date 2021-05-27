@@ -12,3 +12,8 @@ Spring boot Web <br/>
 <hr/>
 <hr/>
 Repository https://github.com/hamitmizrak/spring-boot-project.git
+
+
+````
+netstat –ano | findstr :8080
+taskkill /pid 3740 /f

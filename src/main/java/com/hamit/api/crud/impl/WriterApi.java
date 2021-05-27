@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ import com.hamit.dto.WriterDto;
 import com.hamit.service.impl.WriterServiceImpl;
 
 @RestController
-@RequestMapping("/api/writer")
+@RequestMapping(value = "/api/writer", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 public class WriterApi implements ApiCrud<WriterDto> {
 	
 	@Autowired
