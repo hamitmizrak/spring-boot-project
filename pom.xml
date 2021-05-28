@@ -27,48 +27,31 @@
 
 	<!-- dependencies -->
 	<dependencies>
-
-		<!-- jackson=json uretme,parcalma -->
-	  <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
+	
+	
+	    <!-- <dependency> -->
+		<!-- <groupId>javax.xml.bind</groupId> -->
+		<!-- <artifactId>jaxb-api</artifactId> -->
+		<!-- <version>2.3.0</version> -->
+		<!-- </dependency> -->
 
 		<!-- swagger icin dependency -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-explorer</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
-
-
-		<!-- <dependency> -->
-		<!-- <groupId>javax.xml.bind</groupId> -->
-		<!-- <artifactId>jaxb-api</artifactId> -->
-		<!-- <version>2.3.0</version> -->
-		<!-- </dependency> -->
-
-
 
 		<!-- Validation icin example: @NotNull -->
 		<dependency>
@@ -152,6 +135,27 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		
+		  <!--//////// JACKSON ////////////////////////////////////// -->
+		<!-- jackson=json uretme,parcalma -->
+	  <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
 
 		<!--//////// DATABASE ////////////////////////////////////// -->
 		<!-- Spring Mysql Driver -->
