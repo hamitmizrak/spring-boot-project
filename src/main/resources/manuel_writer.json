@@ -1,0 +1,28 @@
+[
+  
+  {
+  "_class":"com.hamit.entity.WriterEntity",
+    "writerName": "Hulusi-4",
+    "writerSurname": "Mizrak-4",
+    "writerAge": "1",
+    "writerAddress": "degisti",
+    "writerSocialMedia": null
+},
+  {
+   "_class":"com.hamit.entity.WriterEntity",
+    "writerName": "Hulusi-5",
+    "writerSurname": "Mizrak-5",
+    "writerAge": "2",
+    "writerAddress": "degisti5",
+    "writerSocialMedia": null
+},
+  {
+   "_class":"com.hamit.entity.WriterEntity",
+    "writerName": "Hulusi-6",
+    "writerSurname": "Mizrak-6",
+    "writerAge": "3",
+    "writerAddress": "degisti6",
+    "writerSocialMedia": null
+}
+  
+]
