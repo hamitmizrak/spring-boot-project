@@ -137,26 +137,26 @@
 
 		<!--//////// DATABASE ////////////////////////////////////// -->
 		<!-- Spring Mysql Driver -->
-<!-- 		<dependency> -->
-<!-- 		<groupId>mysql</groupId> -->
-<!-- 		<artifactId>mysql-connector-java</artifactId> -->
-<!-- 		<scope>runtime</scope> -->
-<!-- 		</dependency> -->
-
-		<!-- Spring H2database  localhost:8080/h2 -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.198</version>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- Spring postgresql -->
 		<!-- <dependency> -->
-		<!-- <groupId>org.postgresql</groupId> -->
-		<!-- <artifactId>postgresql</artifactId> -->
+		<!-- <groupId>mysql</groupId> -->
+		<!-- <artifactId>mysql-connector-java</artifactId> -->
 		<!-- <scope>runtime</scope> -->
 		<!-- </dependency> -->
+
+		<!-- Spring H2database localhost:8080/h2 -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.h2database</groupId> -->
+		<!-- <artifactId>h2</artifactId> -->
+		<!-- <version>1.4.198</version> -->
+		<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
+
+		<!-- Spring postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
 	</dependencies>
 
