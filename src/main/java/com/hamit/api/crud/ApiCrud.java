@@ -22,8 +22,7 @@ public interface ApiCrud<T> {
 	public ResponseEntity<T> getUpdate(Long id, T dto);
 	
 	// All List
-	public List<T> getAllWriterList();
-
+	public ResponseEntity<List<T>> getAllWriterList();
 	
-	public List<T> getByPagination(int no, int size);
+	public ResponseEntity<List<T>> getByPagination(int no, int size);
 }

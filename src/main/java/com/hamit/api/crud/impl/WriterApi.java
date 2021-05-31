@@ -59,9 +59,9 @@ public class WriterApi implements ApiCrud<WriterDto> {
 	@Override
 	@GetMapping("/paging/{pageNo}/{pageSize}")
 	@ApiOperation(value = "Swapper Get Paging ", response = WriterDto.class)
-	public List<WriterDto> getByPagination(@PathVariable("pageNo") int no, @PathVariable("pageSize") int size) {
+	public ResponseEntity<List<WriterDto>> getByPagination(@PathVariable("pageNo") int no, @PathVariable("pageSize") int size) {
 
-		return writerServiceImpl.getPagingList(no, size);
+		return ResponseEntity.ok(writerServiceImpl.getPagingList(no, size));
 	}
 	
 	// localhost:9292/api/writer/post
@@ -110,9 +110,9 @@ public class WriterApi implements ApiCrud<WriterDto> {
 	@Override
 	@GetMapping("/get/list")
 	@ApiOperation(value = "Swapper All List ", response = WriterDto.class)
-	public List<WriterDto> getAllWriterList() {
+	public ResponseEntity<List<WriterDto>>  getAllWriterList() {
 		log.info("api 2021"+" listelemek");
-		return writerServiceImpl.getAllWriterList();
+		return ResponseEntity.ok(writerServiceImpl.getAllWriterList());
 	}
 	
 }
