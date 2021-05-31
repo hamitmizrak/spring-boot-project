@@ -56,6 +56,7 @@ public class WriterApi implements ApiCrud<WriterDto> {
 	}
 	
 	//paging
+	// localhost:9292/api/writer/paging/0/5  ==> 0.sayfadaki 5'erli sayfala
 	@Override
 	@GetMapping("/paging/{pageNo}/{pageSize}")
 	@ApiOperation(value = "Swapper Get Paging ", response = WriterDto.class)
