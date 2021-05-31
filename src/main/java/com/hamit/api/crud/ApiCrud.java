@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
-import com.hamit.dto.WriterDto;
-
 public interface ApiCrud<T> {
 	
 	// GET
@@ -24,6 +22,8 @@ public interface ApiCrud<T> {
 	public ResponseEntity<T> getUpdate(Long id, T dto);
 	
 	// All List
-	public List<WriterDto> getAllWriterList();
+	public List<T> getAllWriterList();
+
 	
+	public List<T> getByPagination(int no, int size);
 }

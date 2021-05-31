@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,14 @@ public class WriterServiceImpl implements WriterService {
 		// Entity'den Dto çevirmek
 		log.info(WriterDto.class + " Veriler listelendi");
 		return modelMapper.map(writerEntity, WriterDto.class);
+	}
+	
+	@Override
+	public List<WriterDto> getPagingList(int no, int size) {
+		Pageable pageable = PageRequest.of(no, size);
+		Page<WriterEntity> writerPagePaging = writerRepository.findAll(pageable);
+		List<WriterDto> writerDtoList = mapList(writerPagePaging.toList(), WriterDto.class);
+		return writerDtoList;
 	}
 	
 	@Override
@@ -85,11 +94,6 @@ public class WriterServiceImpl implements WriterService {
 			log.warning("Hata: ");
 		}
 		
-	}
-	
-	@Override
-	public Page<WriterDto> getPaging(Pageable pageable) {
-		return null;
 	}
 	
 	///////////////////////////////////// LİST/////////////////////////////////////////////////

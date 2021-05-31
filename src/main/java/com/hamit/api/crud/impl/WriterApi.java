@@ -55,6 +55,15 @@ public class WriterApi implements ApiCrud<WriterDto> {
 		return ResponseEntity.ok(writerDto);
 	}
 	
+	//paging
+	@Override
+	@GetMapping("/paging/{pageNo}/{pageSize}")
+	@ApiOperation(value = "Swapper Get Paging ", response = WriterDto.class)
+	public List<WriterDto> getByPagination(@PathVariable("pageNo") int no, @PathVariable("pageSize") int size) {
+
+		return writerServiceImpl.getPagingList(no, size);
+	}
+	
 	// localhost:9292/api/writer/post
 	@Override
 	@PostMapping("/post")
